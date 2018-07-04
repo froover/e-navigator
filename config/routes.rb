@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    root :to => "users/sessions#new"
+    to: "users/sessions#new"
   end
 
   get 'pages/show'
