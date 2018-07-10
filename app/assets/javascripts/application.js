@@ -16,5 +16,6 @@
 //= require rails-ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require data-confirm-modal
 //= require_tree .
 
