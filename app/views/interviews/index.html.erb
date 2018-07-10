@@ -17,15 +17,13 @@
         <td><%= interview.interview_date.strftime("%Y年%m月%d日 %H時%M分") %></td>
         <td><%= interview.approval %></td>
         <td><%= link_to '編集', edit_interview_path(interview), class: "btn btn-outline-primary" %></td>
-        <td><%= link_to '削除', interview, method: :delete, data: { confirm: '本当に削除しますか?' ,
-                cancel: 'やめる', commit: '削除する', title: '削除の確認'} , class: "btn btn-outline-danger" %></td>
+        <td><%= link_to '削除', interview, method: :delete,
+                data: { confirm: '本当に削除しますか?' ,cancel: 'やめる', commit: '削除する', title: '削除の確認'} ,
+                class: "btn btn-outline-danger" %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
-
   <br>
-
-  <%= link_to "新規面接作成", new_interview_path, class: "btn btn-outline-primary" %>
-
-<div/>
+    <%= link_to "新規面接作成", new_interview_path, class: "btn btn-outline-primary" %>
+</div>
