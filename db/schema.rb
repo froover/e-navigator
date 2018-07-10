@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180710063510) do
 
   create_table "interviews", force: :cascade do |t|
     t.datetime "interview_date"
-    t.integer "approval"
+    t.string "approval", default: "保留"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
