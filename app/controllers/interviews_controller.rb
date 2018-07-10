@@ -33,24 +33,17 @@ class InterviewsController < ApplicationController
 
   # PATCH/PUT /interviews/1
   def update
-    respond_to do |format|
-      if @interview.update(interview_params)
-        format.html { redirect_to @interview, notice: 'Interview was successfully updated.' }
-        format.json { render :show, status: :ok, location: @interview }
-      else
-        format.html { render :edit }
-        format.json { render json: @interview.errors, status: :unprocessable_entity }
-      end
+    if @interview.update(interview_params)
+      redirect_to @interview, notice: '面談日程が更新されました。'
+    else
+      render :edit
     end
   end
 
   # DELETE /interviews/1
   def destroy
     @interview.destroy
-    respond_to do |format|
-      format.html { redirect_to interviews_url, notice: 'Interview was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to @interview, notice: '面談日程が削除されました。'
   end
 
   private

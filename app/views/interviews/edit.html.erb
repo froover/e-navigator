@@ -1,6 +1,7 @@
-<h1>Editing Interview</h1>
+<div class="container">
+  <h1>面談日程編集</h1>
 
-<%= render 'form', interview: @interview %>
-
-<%= link_to 'Show', @interview %> |
-<%= link_to 'Back', interviews_path %>
+  <%= render 'form', interview: @interview %>
+  <br/>
+  <%= link_to '戻る', interviews_path %>
+</div>
