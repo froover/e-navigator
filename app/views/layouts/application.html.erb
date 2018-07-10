@@ -13,6 +13,7 @@
       <a class="navbar-brand" href="/">面談日程調整</a>
         <% if user_signed_in? %>
           <%= link_to 'プロフィール', edit_user_registration_path %>
+          <%= link_to '自分の面談一覧', interviews_path %>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to 'ユーザー登録', new_user_registration_path %>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Interviews</h1>
+<h1><%= current_user.name %>さんの面談一覧</h1>
 
 <table>
   <thead>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Interview', new_interview_path %>
+<%= link_to '新規面談作成', new_interview_path %>

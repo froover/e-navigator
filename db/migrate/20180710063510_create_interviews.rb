@@ -3,7 +3,8 @@ class CreateInterviews < ActiveRecord::Migration[5.1]
     create_table :interviews do |t|
       t.datetime :interview_date
       t.integer :approval
-      t.references :user, foreign_key: true
+      t.string :user_id
+      t.references :user, foreign_key: true, type: :integer
 
       t.timestamps
     end
