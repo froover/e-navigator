@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :interviews
 
   root 'users#index'
   get 'users/index'
