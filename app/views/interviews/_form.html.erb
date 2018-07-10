@@ -1,0 +1,14 @@
+
+<%= simple_form_for(@interview) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-group">
+    <%= f.label :面接開始時間 %><br />
+    <%= f.datetime_field :interview_date, {min: Time.zone.today,max: Time.zone.today.end_of_year} %>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-outline-success">更新する</button>
+  </div>
+<% end %>

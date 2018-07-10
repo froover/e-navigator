@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>面談日程調整</title>
+    <title>面接日程調整</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,17 +10,32 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">面談日程調整</a>
-        <% if user_signed_in? %>
-          <%= link_to 'プロフィール', edit_user_registration_path %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'ユーザー登録', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-        <% end %>
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <a class="navbar-brand" href="/">面接日程調整</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'プロフィール', edit_user_registration_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '自分の面接一覧', interviews_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to 'ユーザー登録', new_user_registration_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログイン', new_user_session_path %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </nav>
     <% if notice.present? %>
       <div class="alert alert-dismissable alert-success">
