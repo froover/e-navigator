@@ -2,7 +2,7 @@
 
   <h1><%= current_user.name %>さんの面接一覧</h1>
 
-  <table>
+  <table class="table table-bordered table-hover">
     <thead>
     <tr>
       <th>面接開始時間</th>
@@ -26,5 +26,6 @@
 
   <br>
 
-  <%= link_to '新規面接予定', new_interview_path %>
-</div>
+  <%= link_to "新規面談作成", new_interview_path, class: "btn btn-outline-primary" %>
+
+<div/>
