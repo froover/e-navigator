@@ -36,6 +36,7 @@ gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'simple_form'
+gem 'data-confirm-modal'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
