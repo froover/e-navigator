@@ -1,4 +1,17 @@
 <div class="container">
+  <p>
+    <strong>面談日程</strong>
+    <br/>
+    <%= @interview.interview_date %>
+  </p>
+
+  <p>
+    <strong>承認状態</strong>
+    <br/>
+    <%= @interview.approval %>
+  </p>
+
+  <br/>
   <%= link_to '面談日程編集', edit_interview_path(@interview) %> |
   <%= link_to '戻る', interviews_path %>
 </div>
