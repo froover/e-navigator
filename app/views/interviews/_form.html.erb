@@ -3,10 +3,12 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-group">
+    <%= f.label :面接開始時間 %><br />
+    <%= f.datetime_field :interview_date, {min: Time.zone.today,max: Time.zone.today.end_of_year} %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div>
+    <button type="submit" class="btn btn-outline-primary">登録</button>
   </div>
 <% end %>
