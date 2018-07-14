@@ -20,7 +20,10 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.age %></td>
+        <td>
+        <% user.birthday %>
+          <%= (Time.zone.now.year) - (user.birthday.year) %>
+        </td>
         <td><%= user.gender %></td>
         <td><%= user.school %></td>
         <td>面接日時を入れる</td>
