@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20180710063510) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.date "birthday"
-    t.integer "gender"
+    t.integer "gender", limit: 2, default: 0, null: false
     t.string "school"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

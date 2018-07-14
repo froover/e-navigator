@@ -25,10 +25,11 @@
 
       <div class="form-group">
         <%= f.label :性別 %><br />
-        <%= f.select :gender, [["男性", 1], ["女性", 2]] %>
+        <%= select :gender,:name,User.genders.keys.to_a %>
       </div>
 
-      <div class="form-group"><%= f.label :学校名 %><br />
+      <div class="form-group">
+        <%= f.label :学校名 %><br />
         <%= f.text_field :school, autofocus: true, :size => 50 %>
       </div>
 
