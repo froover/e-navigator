@@ -29,7 +29,7 @@ class InterviewsController < ApplicationController
     @interview.user = current_user
     @user = current_user
     if @interview.save
-      redirect_to user_interview_url(@user,@interview), notice: '面談日程が作成されました。'
+      redirect_to user_interview_url(@user,@interview), notice: '面接日程が作成されました。'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class InterviewsController < ApplicationController
   # PATCH/PUT /users/:user_id/interviews/:id
   def update
     if @interview.update(interview_params)
-      redirect_to user_interview_url, notice: '面談日程が更新されました。'
+      redirect_to user_interview_url, notice: '面接日程が更新されました。'
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class InterviewsController < ApplicationController
   # DELETE /users/:user_id/interviews/:id
   def destroy
     @interview.destroy
-    redirect_to user_interview_url, notice: '面談日程が削除されました。'
+    redirect_to user_interview_url, notice: '面接日程が削除されました。'
   end
 
   private
