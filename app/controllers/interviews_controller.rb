@@ -48,7 +48,7 @@ class InterviewsController < ApplicationController
   # DELETE /users/:user_id/interviews/:id
   def destroy
     @interview.destroy
-    redirect_to user_interview_url, notice: '面接日程が削除されました。'
+    redirect_to user_interviews_url, notice: '面接日程が削除されました。'
   end
 
   private
