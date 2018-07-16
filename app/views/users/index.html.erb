@@ -21,10 +21,10 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td>
-        <% user.birthday %>
+          <% user.birthday %>
           <%= (Time.zone.now.year) - (user.birthday.year) %>
         </td>
-        <td><%= user.gender %></td>
+        <td><%= t "enums.user.gender.#{user.gender}" %></td>
         <td><%= user.school %></td>
         <td>面接日時を入れる</td>
         <td><%= link_to '面接一覧', interviews_path, class: "btn btn-outline-primary" %></td>
