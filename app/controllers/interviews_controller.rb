@@ -1,15 +1,14 @@
 class InterviewsController < ApplicationController
+  before_action :set_user, except: :destroy
   before_action :set_interview, only: [:show, :edit, :update, :destroy]
 
   # GET /users/:user_id/interviews
   def index
-    @user = User.find(params[:user_id])
     @interviews = current_user.interviews
   end
 
   # GET /users/:user_id/interviews/:id
   def show
-    @user = User.find(params[:user_id])
   end
 
   # GET /users/:user_id/interviews/:id/new
@@ -20,7 +19,6 @@ class InterviewsController < ApplicationController
 
   # GET /users/:user_id/interviews/:id/edit
   def edit
-    @user = User.find(params[:user_id])
   end
 
   # POST /users/:user_id/interviews
@@ -52,6 +50,10 @@ class InterviewsController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_interview
     @interview = Interview.find(params[:id])
