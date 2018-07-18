@@ -21,7 +21,7 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.age %></td>
-        <td><%= t "enums.user.gender.#{user.gender}" %></td>
+        <td><%= user.gender_i18n %></td>
         <td><%= user.school %></td>
         <td>面接日時を入れる</td>
         <td><%= link_to '面接一覧', user_interviews_path(user), class: "btn btn-outline-primary" %></td>
