@@ -27,7 +27,7 @@ class InterviewsController < ApplicationController
     @interview.user = current_user
     @user = current_user
     if @interview.save
-      redirect_to user_interview_url(@user,@interview), notice: '面接日程が作成されました。'
+      redirect_to user_interview_url(@user, @interview), notice: '面接日程が作成されました。'
     else
       render :new
     end
