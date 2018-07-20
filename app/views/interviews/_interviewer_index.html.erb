@@ -7,9 +7,16 @@
   <br>
   <hr>
 
+  <p>面接日程を変更する場合は以下から選んでください。</p>
   <form>
-    <% @interviews.each do |interview| %>
-      <p><%= interview.interview_date.strftime("%Y年%m月%d日 %H時%M分") %></p>
-    <% end %>
+    <ul>
+      <% @interviews.each do |interview| %>
+        <li>
+          <input type="button" class="btn btn-primary"
+                 value="<%= interview.interview_date.strftime("%Y年%m月%d日 %H時%M分") %>">
+          </input>
+        </li>
+      <% end %>
+    </ul>
   </form>
 </div>
