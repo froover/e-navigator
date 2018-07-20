@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h1><%= @user.name %>さんの面接一覧</h1>
+
+  <h3>現在の面接日程</h3>
+
+  <br>
+  <hr>
+
+  <form>
+    <% @interviews.each do |interview| %>
+      <p><%= interview.interview_date.strftime("%Y年%m月%d日 %H時%M分") %></p>
+    <% end %>
+  </form>
+</div>
