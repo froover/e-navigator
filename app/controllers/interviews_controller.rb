@@ -1,52 +1,59 @@
 class InterviewsController < ApplicationController
+  before_action :set_user, except: :destroy
   before_action :set_interview, only: [:show, :edit, :update, :destroy]
 
-  # GET /interviews
+  # GET /users/:user_id/interviews
   def index
     @interviews = current_user.interviews
   end
 
-  # GET /interviews/1
+  # GET /users/:user_id/interviews/:id
   def show
   end
 
-  # GET /interviews/new
+  # GET /users/:user_id/interviews/:id/new
   def new
+    @user = current_user
     @interview = Interview.new
   end
 
-  # GET /interviews/1/edit
+  # GET /users/:user_id/interviews/:id/edit
   def edit
   end
 
-  # POST /interviews
+  # POST /users/:user_id/interviews
   def create
     @interview = Interview.new(interview_params)
     @interview.user = current_user
+    @user = current_user
     if @interview.save
-      redirect_to @interview, notice: '面談日程が作成されました。'
+      redirect_to user_interview_url(@user, @interview), notice: '面接日程が作成されました。'
     else
       render :new
     end
   end
 
 
-  # PATCH/PUT /interviews/1
+  # PATCH/PUT /users/:user_id/interviews/:id
   def update
     if @interview.update(interview_params)
-      redirect_to @interview, notice: '面談日程が更新されました。'
+      redirect_to user_interview_url, notice: '面接日程が更新されました。'
     else
       render :edit
     end
   end
 
-  # DELETE /interviews/1
+  # DELETE /users/:user_id/interviews/:id
   def destroy
     @interview.destroy
-    redirect_to @interview, notice: '面談日程が削除されました。'
+    redirect_to user_interviews_url, notice: '面接日程が削除されました。'
   end
 
   private
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_interview
     @interview = Interview.find(params[:id])
