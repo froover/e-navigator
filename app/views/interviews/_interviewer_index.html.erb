@@ -13,7 +13,7 @@
       <% @interviews.each do |interview| %>
         <li>
           <%= simple_form_for @user do |f| %>
-            <%= f.submit interview.interview_date.strftime("%Y年%m月%d日 %H時%M分"),
+            <%= f.submit interview.interview_date.to_s(:datetime),
                          data: { confirm: '面接を確定しますか?' ,cancel: 'やめる', commit: '確定する',
                          title: '面接日程の確認'} ,class: "btn btn-primary" %>
           <% end %>
