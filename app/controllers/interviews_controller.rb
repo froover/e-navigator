@@ -36,10 +36,17 @@ class InterviewsController < ApplicationController
 
   # PATCH/PUT /users/:user_id/interviews/:id
   def update
-    if @interview.update(interview_params)
-      redirect_to user_interview_url, notice: '面接日程が更新されました。'
+    if user_id == current_user.id
+      if @interview.update(interview_params)
+        @interview.hold!
+        redirect_to user_interviews_url, notice: '面接候補日を更新しました'
+      else
+        render :edit
+      end
     else
-      render :edit
+      @interview.approved!
+      @user.interviews.where.not(id: @interview.id).update_all(approval: :rejected)
+      redirect_to user_interviews_url, notice: '面接日を設定しました'
     end
   end
 
