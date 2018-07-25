@@ -14,8 +14,8 @@
         <li>
           <%= simple_form_for ([@user, interview]) do |f| %>
             <%= f.submit interview.interview_date.to_s(:datetime), method: :patch,
-                         data: { confirm: '面接を確定しますか?' ,cancel: 'やめる', commit: '確定する',
-                         title: '面接日程の確認'} ,class: "btn btn-primary" %>
+                         data: { confirm: interview.interview_date.to_s(:datetime)+'で面接を確定しますか?' ,
+                         cancel: 'やめる', commit: '確定する',title: '面接日程の確認'} ,class: "btn btn-primary" %>
           <% end %>
         </li>
       <% end %>
