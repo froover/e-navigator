@@ -4,7 +4,7 @@ class InterviewsController < ApplicationController
 
   # GET /users/:user_id/interviews
   def index
-    @interviews = current_user.interviews
+    @interviews = @user.interviews
   end
 
   # GET /users/:user_id/interviews/:id
