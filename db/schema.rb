@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180717154306) do
   enable_extension "plpgsql"
 
   create_table "interviews", force: :cascade do |t|
-    t.datetime "interview_date"
+    t.datetime "interview_date", null: false
     t.integer "approval", default: 0
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180717154306) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.date "birthday"
+    t.date "birthday", null: false
     t.integer "gender", limit: 2
     t.string "school"
     t.index ["email"], name: "index_users_on_email", unique: true
