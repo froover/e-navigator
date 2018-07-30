@@ -4,7 +4,7 @@
 
   <h3>現在の面接日程</h3>
     <p>
-    <strong><%= Interview.approved.find_by(user_id: @user.id)&.interview_date&.to_s(:datetime) %></strong>
+    <strong><%= @user.interviews.find_by(approval: "approved").interview_date.to_s(:datetime) %></strong>
     に面接が設定されています。
     </p>
   
