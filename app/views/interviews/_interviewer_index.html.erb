@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h1><%= @user.name %>さんの面接一覧</h1>
+
+  <h3>現在の面接日程</h3>
+    <p>
+    <strong><%= @user.interviews.find_by(approval: "approved")&.interview_date&.to_s(:datetime) %></strong>
+    に面接が設定されています。
+    </p>
+  
+
+  <hr>
+
+  <p>面接日程を変更する場合は以下から選んでください。</p>
+  <ul>
+    <% @interviews.each do |interview| %>
+      <li>
+        <%= simple_form_for ([@user, interview]) do |f| %>
+          <%= f.submit interview.interview_date.to_s(:datetime), method: :patch,
+              data: { confirm: interview.interview_date.to_s(:datetime)+'で面接を確定しますか?' ,
+              cancel: 'やめる', commit: '確定する', title: '面接日程の確認'} , class: "btn btn-primary" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

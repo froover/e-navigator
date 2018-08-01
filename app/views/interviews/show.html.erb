@@ -2,13 +2,13 @@
   <p>
     <strong>面接日程</strong>
     <br/>
-    <%= @interview.interview_date %>
+    <%= @interview.interview_date.to_s(:datetime) %>
   </p>
 
   <p>
     <strong>承認状態</strong>
     <br/>
-    <%= @interview.approval %>
+    <%= @interview.approval_i18n %>
   </p>
 
   <br/>
