@@ -1,13 +1,9 @@
 class InterviewMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.interview_mailer.send_when_confirm.subject
-  #
-  def send_when_confirm
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def send_when_confirm(user, current_user, interview)
+    @user = user
+    @current_user = current_user
+    @interview = user.interviews.find_by(approval: "approved")&.interview_date&.to_s(:datetime)
+    mail to: @user.email, subject: "面接日が確定しました"
   end
 end

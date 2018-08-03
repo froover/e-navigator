@@ -46,6 +46,7 @@ class InterviewsController < ApplicationController
     else
       @interview.approved!
       @user.interviews.where.not(id: @interview.id).update_all(approval: :rejected)
+      InterviewMailer.send_when_confirm(@user, current_user, @interview).deliver
       redirect_to user_interviews_url, notice: '面接日を設定しました'
     end
   end
