@@ -1,10 +1,17 @@
 class InterviewsController < ApplicationController
   before_action :set_user, except: :destroy
   before_action :set_interview, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /users/:user_id/interviews
   def index
     @interviews = @user.interviews
+  end
+
+  def apply
+    @interviewer = User.find(params[:user][:id])
+    InterviewMailer.send_when_application(@interviewer, current_user).deliver
+    redirect_to user_interviews_url, notice: '面接日程を申請しました'
   end
 
   # GET /users/:user_id/interviews/:id
@@ -46,6 +53,7 @@ class InterviewsController < ApplicationController
     else
       @interview.approved!
       @user.interviews.where.not(id: @interview.id).update_all(approval: :rejected)
+      InterviewMailer.send_when_confirm(@user, current_user, @interview).deliver
       redirect_to user_interviews_url, notice: '面接日を設定しました'
     end
   end
