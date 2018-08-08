@@ -25,5 +25,14 @@
     </tbody>
   </table>
   <br>
-  <%= link_to "新規面接作成", new_user_interview_path, class: "btn btn-outline-primary" %>
+  <div>
+    <%= simple_form_for(@user, url: apply_user_interviews_path, html: {method: 'POST'}) do |f| %>
+      <div>
+        <%= f.collection_select :id, User.all, :id, :name %>
+        <%= f.submit "申請", class: "btn btn-outline-success" %>
+      </div>
+    <% end %>
+    </br>
+    <%= link_to "新規面接作成", new_user_interview_path, class: "btn btn-outline-primary" %>
+  </div>
 </div>

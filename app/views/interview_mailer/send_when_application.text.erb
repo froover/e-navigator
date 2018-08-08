@@ -2,4 +2,4 @@
 
 以下の URL から、面接日時の承認をよろしくお願いします。
 
-<%= link_to "https://e-navigator-froover.herokuapp.com/users/#{@user.id}/interviews" %>
+<%= user_interviews_url(user_id: @user.id) %>

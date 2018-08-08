@@ -8,8 +8,7 @@ class InterviewsController < ApplicationController
   end
 
   def apply
-    @interviewer = User.find(params[:user][:id])
-    InterviewMailer.send_when_application(@interviewer, current_user).deliver
+    InterviewMailer.send_when_application(@user, current_user).deliver
     redirect_to user_interviews_url, notice: '面接日程を申請しました'
   end
 
