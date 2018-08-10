@@ -1,8 +1,8 @@
 class InterviewMailer < ApplicationMailer
 
-  def send_when_application(interviewee, interviewer)
-    @interviewee = interviewee
+  def send_when_application(interviewer, interviewee)
     @interviewer = interviewer
+    @interviewee = interviewee
     mail to: @interviewer.email, subject: "面接希望日の申請がありました"
   end
 
