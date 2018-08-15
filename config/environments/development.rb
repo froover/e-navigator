@@ -55,5 +55,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # development 環境では letter_opener_web を使う
   config.action_mailer.delivery_method = :letter_opener_web
 end
